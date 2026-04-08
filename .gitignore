@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+
+# Environment
+.env
+
+# Database (المجلد الذي يحتوي على المتجهات الضخمة)
+chromadb_storage/
+
+# OS
+.DS_Store

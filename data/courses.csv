@@ -1,0 +1,28 @@
+skill,course_title,provider,url
+Python,Python for Data Science and AI,IBM,https://www.coursera.org/learn/python-for-applied-data-science-ai
+LangChain,LangChain for LLM Application Development,DeepLearning.AI,https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/
+AutoGen,AI Agentic Design Patterns with AutoGen,DeepLearning.AI,https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/
+Prompt Engineering,ChatGPT Prompt Engineering for Developers,DeepLearning.AI,https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/
+Vector DBs,Vector Databases: from Embeddings to Applications,DeepLearning.AI,https://www.deeplearning.ai/short-courses/vector-databases-embeddings-applications/
+Docker,Docker for Absolute Beginners,KodeKloud,https://youtu.be/zJ6W893Y-m8
+Kubernetes,Kubernetes for the Absolute Beginners,KodeKloud,https://www.udemy.com/course/learn-kubernetes/
+Linux,Linux Administration Bootcamp,Udemy,https://www.udemy.com/course/linux-administration-bootcamp/
+Agile,Agile with Atlassian Jira,Atlassian,https://www.coursera.org/learn/agile-atlassian-jira
+RAG,Generative AI with RAG,NVIDIA,https://learn.nvidia.com/courses/course-detail?course_id=course-v1:nvidia+s-fx-16+v1
+Machine Learning,Machine Learning Specialization,Stanford,https://www.coursera.org/specializations/machine-learning-introduction
+SQL,SQL for Data Science,UC Davis,https://www.coursera.org/learn/sql-for-data-science
+React,React Core Concepts,Meta,https://www.coursera.org/learn/introduction-to-react-ad
+FastAPI,High Performance APIs with FastAPI,TestDriven,https://testdriven.io/courses/fastapi-celery/
+PostgreSQL,PostgreSQL for Developers,FreeCodeCamp,https://youtu.be/qw--VYLpxG4
+Statistics,Basic Statistics,University of Amsterdam,https://www.coursera.org/learn/basic-statistics
+NLP,Natural Language Processing Specialization,DeepLearning.AI,https://www.coursera.org/specializations/natural-language-processing
+Pytorch,PyTorch for Deep Learning,Microsoft,https://learn.microsoft.com/en-us/training/paths/pytorch-fundamentals/
+AWS,AWS Cloud Practitioner Essentials,Amazon AWS,https://explore.skillbuilder.aws/learn/course/external/view/elearning/134/aws-cloud-practitioner-essentials
+GitHub Actions,GitHub Actions Tutorial,GitHub,https://youtu.be/R8_veQiYBjI
+Planning Systems,AI Agents and Reasoning,DeepLearning.AI,https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/
+Planning Systems,Reasoning Strategies for LLMs,Microsoft,https://learn.microsoft.com/en-us/training/modules/concepts-of-generative-ai/
+Tool Use,Functions Tools and Agents with LangChain,DeepLearning.AI,https://www.deeplearning.ai/short-courses/functions-tools-agents-langchain/
+Tool Use,Building Systems with the ChatGPT API,OpenAI,https://www.deeplearning.ai/short-courses/building-systems-with-chatgpt/
+Agentic Workflows,Multi-Agent Systems with AutoGen,DeepLearning.AI,https://www.deeplearning.ai/short-courses/multi-agent-systems-with-autogen/
+Decision Making,Reinforcement Learning Specialization,University of Alberta,https://www.coursera.org/specializations/reinforcement-learning
+Operational AI,Reliable Machine Learning,Google,https://www.coursera.org/learn/reliability-ml-implementing-mlops
