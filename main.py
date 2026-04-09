@@ -1,61 +1,78 @@
+import sys
+import os
+
+# Ensure the project root is in the path for imports
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(current_dir, "../../"))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
 from src.services.embedding_service import EmbeddingService
 from src.services.vector_db_service import VectorDBService
 from src.use_cases.analyzer import SkillGapAnalyzer
 from src.use_cases.path_generator import LearningPathGenerator
 
 def main():
-    # 1. Initialize Services
-    # Creating the engines
+    # 1. Initialize core AI and Database services
     embed_service = EmbeddingService()
     db_service = VectorDBService()
     
-    # 2. Setup Analyzers
+    # 2. Setup the Business Logic Layer
     analyzer = SkillGapAnalyzer(embed_service, db_service)
     path_gen = LearningPathGenerator(db_service)
 
-    # 3. Seed Data (Simulating a real database)
-    # Adding a sample Job
-    job_text = "Senior Python Developer: Expert in FastAPI, PostgreSQL, and AWS Cloud."
-    job_vector = embed_service.generate_vector(job_text)
+    # 3. Seed Data: Injecting sample Job into the Vector DB
+    # We use a piped string format to simulate our production data structure
+    job_title = "Senior Python Developer"
+    job_skills_text = "Python | FastAPI | PostgreSQL | AWS Cloud"
+    job_full_text = f"{job_title}: Expert in {job_skills_text}"
+    
+    job_vector = embed_service.generate_vector(job_full_text)
+    
+    # Clear old data if needed or just add new
     db_service.add_data(
         collection_name="jobs",
         ids=["job_001"],
-        documents=[job_text],
+        documents=[job_full_text],
         embeddings=[job_vector],
-        metadatas=[{"role": "Senior Python Developer", "company": "TechCorp"}]
+        metadatas=[{"title": job_title, "location": "Remote", "content": job_skills_text}]
     )
 
-    # Adding sample Courses
-    course_data = [
-        {"id": "c1", "text": "Mastering AWS Cloud Infrastructure", "meta": {"title": "AWS Course", "url": "https://aws.com"}},
-        {"id": "c2", "text": "Deep Dive into FastAPI and Async Python", "meta": {"title": "FastAPI Mastery", "url": "https://fastapi.tiangolo.com"}},
-        {"id": "c3", "text": "Basic Python for Beginners", "meta": {"title": "Intro to Python", "url": "https://python.org"}}
-    ]
+    # 4. User Simulation: A CV that lacks specific keywords
+    user_cv = "I am a developer with experience in Python and SQL. Looking for new challenges."
     
-    db_service.add_data(
-        collection_name="courses",
-        ids=[c["id"] for c in course_data],
-        documents=[c["text"] for c in course_data],
-        embeddings=embed_service.generate_vectors_batch([c["text"] for c in course_data]),
-        metadatas=[c["meta"] for c in course_data]
-    )
-
-    # 4. User Simulation (The CV)
-    # Let's say the user knows Python and SQL but lacks AWS and FastAPI
-    user_cv = "I am a developer with experience in Python and SQL databases. Looking for new challenges."
-    
-    print("\n--- Starting Analysis ---")
+    print("\n--- [PHASE 1: STRATEGIC ANALYSIS] ---")
     results = analyzer.analyze_user_vs_job(user_cv, job_id="job_001")
 
-    print(f"Target Job: {results['job_title']}")
-    print(f"Match Percentage: {results['match_percentage']}%")
+    print(f"Target Job: {results.get('job_title', job_title)}")
+    print(f"Match Readiness: {results['match_percentage']}%")
 
-    # 5. Generate Learning Path
-    print("\n--- Recommended Learning Path to Close the Gap ---")
-    recommendations = path_gen.generate_recommendations(results['gap_vector'])
+    # 5. Skill Extraction & Cleaning (Logic Sync with app.py)
+    # We manually extract gaps to pass them as text for high-accuracy CSV matching
+    raw_skills = job_skills_text.split('|')
+    gap_skills = []
+    
+    for s in raw_skills:
+        skill_name = s.strip()
+        # Case-insensitive check to find missing keywords in CV
+        if skill_name.lower() not in user_cv.lower():
+            gap_skills.append(skill_name)
 
-    for i, rec in enumerate(recommendations, 1):
-        print(f"{i}. {rec['title']} - Relevance: {rec['relevance_score']} | Link: {rec['url']}")
+    print(f"Detected Gaps: {', '.join(gap_skills)}")
+
+    # 6. Generate Recommendations using both Vector and Textual Gaps
+    print("\n--- [PHASE 2: RECOMMENDED TRAINING] ---")
+    recommendations = path_gen.generate_recommendations(
+        gap_vector=results['gap_vector'],
+        gap_skills=gap_skills
+    )
+
+    if recommendations:
+        for i, rec in enumerate(recommendations, 1):
+            print(f"{i}. [{rec.get('provider', 'Expert')}] {rec['title']}")
+            print(f"   Relevance: {rec['relevance_score']} | Link: {rec['url']}\n")
+    else:
+        print("No immediate matches found in local repository.")
 
 if __name__ == "__main__":
     main()
