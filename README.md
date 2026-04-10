@@ -1,59 +1,57 @@
-# PathCraft-AI
-🎯 PathCraft AI | Tactical Skill Analysis Engine
-PathCraft AI is a professional-grade strategic intelligence system built to analyze skill gaps in the 2026 AI job market. It operates as a Fully Local AI System, ensuring data privacy and high performance without reliance on external APIs.
+🎯 PathCraft AI | Strategic Skill-Gap Analysis Engine
+PathCraft AI is a local-first intelligence platform engineered to analyze technical alignment within the 2026 AI job market. By leveraging high-dimensional vector embeddings and deterministic matching logic, the system provides precise gap analysis and career deployment roadmaps without relying on external cloud APIs.
 
-🛠 Project Tech Stack
-Intelligence (Local Embeddings): Sentence-Transformers (Local BERT-based models for high-precision vector generation).
+🛠 Technical Architecture
+The system is built with a modular "Local-First" stack, prioritizing data privacy, low latency, and mathematical accuracy.
 
-Memory (Vector Layer): ChromaDB (Open-source vector database for high-dimensional storage).
+Neural Inference (Local): Sentence-Transformers utilizing BERT-based architectures for high-precision semantic vector generation.
 
-Logic & Math: Pure Python 3.10+ (Custom VectorMath for similarity scoring).
+Vector Orchestration: ChromaDB for high-dimensional indexing and similarity-based retrieval.
 
-Control Panel (UI): Streamlit with a custom Cyber-Industrial CSS dashboard.
+Compute Logic: Pure Python 3.10+ featuring custom VectorMath modules for deterministic similarity scoring.
 
-Data Engine: Pandas for structured market and course data management.
+Tactical Interface: Streamlit with a customized Cyber-Industrial CSS framework for high-density data visualization.
 
-Document Parser: PyPDF2 for secure, local CV parsing.
+Data Pipeline: Pandas for structured market intelligence and PyPDF2 for secure, localized document parsing.
 
-🚀 Key Features
-1. Offline Vector Intelligence
-By using local embeddings, the system performs instantaneous analysis without network latency or API costs. It maps your CV against a high-dimensional vector space of job requirements stored in ChromaDB.
+🚀 Key Capabilities
+📡 Offline Vector Intelligence
+Execute deep semantic analysis of professional experience against complex job requirements. The system maps CV data to a high-dimensional vector space stored in ChromaDB, enabling instantaneous alignment scoring without external API dependencies.
 
-2. Tactical Skill Extraction
-A robust extraction engine that uses pattern matching to scan job descriptions for technical tokens (e.g., Python, Vector DBs, RAG). This ensures a clean "Required Stack" even from unstructured text.
+🛡️ Tactical Token Extraction
+A robust regex-based extraction engine designed to parse unstructured job descriptions. It identifies critical technical tokens (e.g., Vector Databases, RAG, PyTorch) to generate a clean, validated "Required Stack" list.
 
-3. Verified Learning Path Synthesis
-Identified gaps are cross-referenced with a local courses.csv database. The system provides a direct bridge between a missing skill and a verified course (e.g., DeepLearning.AI).
+🧬 Automated Gap Synthesis
+The engine cross-references identified technical deficiencies with a localized courses.csv repository. This generates a direct bridge between detected gaps and verified educational modules from elite providers.
 
-4. Cyber-Industrial Tactical UI
-A high-density dashboard designed for engineering clarity:
+📟 Cyber-Industrial Command Center
+An engineering-centric dashboard designed for professional clarity:
 
-Match Readiness Score: Real-time vector similarity percentage.
+Match Readiness Index: Real-time percentage reflecting semantic and technical alignment.
 
-Technical Stack: Visual "MATCHED" (✔) vs "GAP" (✖) status.
+Deployment Status: Visual "MATCHED" (✔) and "GAP" (✖) status indicators.
 
-Diagnostic Console: Real-time JSON logs showing system health and data integrity.
 
 📂 Project Structure
 
-├── data/                   # courses.csv (Verified training data)
+├── data/                   # Verified Course Intelligence (courses.csv)
 ├── src/
-│   ├── api/                # Streamlit Dashboard (app.py)
-│   ├── core/               # VectorMath & Analysis logic
-│   ├── services/           # Local Embedding & ChromaDB services
-│   └── use_cases/          # SkillGapAnalyzer & PathGenerator
-├── ai_jobs_market_...csv   # Market Dataset (2025-2026)
-├── ingest_jobs.py          # Local Data Ingestion Pipeline
-└── requirements.txt        # System Dependencies
+│   ├── api/                # Tactical Command Dashboard (app.py)
+│   ├── core/               # Mathematical logic & analysis entities
+│   ├── services/           # VectorDB (ChromaDB) & Embedding orchestration
+│   └── use_cases/          # SkillGapAnalyzer & PathGenerator modules
+├── ai_jobs_market_25_26.csv# 2026 AI Market Intelligence Dataset
+├── ingest_jobs.py          # Data Ingestion & Vectorization Pipeline
+└── requirements.txt        # System Dependency Manifest
 
-⚡ Quick Start
-1.Install Dependencies:
-  pip install -r requirements.txt
+⚡ Deployment Guide
+1.Environment Setup:
+pip install -r requirements.txt
 
-2.Run Ingestion (Local Processing):
+2.Initialize Vector Database (Local Processing):
   python ingest_jobs.py
 
-3.Launch Tactical Command Center:
-  streamlit run src/api/app.py
+3.Launch Tactical Interface:
+ streamlit run src/api/app.py
 
  
